@@ -13,6 +13,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { SafeAreaView } from "react-native";
 import { TimeBlocks } from "../types/common";
 import { colors } from "../variables/colors";
+import Constants from 'expo-constants';
 
 type PropTypes = {
   modalVisible: boolean;
@@ -40,7 +41,7 @@ export default function FormModal({
   };
 
   return (
-    <View className="absolute top-0 right-0 bottom-0 left-0">
+    <View style={{paddingTop: Constants.statusBarHeight + 16,}} className="absolute top-0 right-0 bottom-0 left-0">
       <SafeAreaView>
         <Modal
           animationType="slide"
@@ -85,6 +86,7 @@ export default function FormModal({
                 <TextInput
                   onChangeText={onChangeDuration}
                   keyboardType="numeric"
+                  returnKeyType="done"
                   value={duration}
                   placeholder="120"
                   className="border border-gray-300 rounded-md py-1 px-3 bg-white"

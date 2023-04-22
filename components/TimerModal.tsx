@@ -12,6 +12,7 @@ import { colors } from "../variables/colors";
 import { TimeBlock, TimeBlocks } from "../types/common";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import TimerItem from "./TimerItem";
+import Constants from "expo-constants";
 
 type PropTypes = {
   modalVisible: boolean;
@@ -46,7 +47,7 @@ export default function TimerModal({
   };
 
   return (
-    <View className="absolute top-0 right-0 bottom-0 left-0">
+    <View style={{paddingTop: Constants.statusBarHeight + 16,}} className="absolute top-0 right-0 bottom-0 left-0">
       <SafeAreaView>
         <Modal
           animationType="slide"

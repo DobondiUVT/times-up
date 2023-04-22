@@ -16,6 +16,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import TimeBlockItem from "./components/TimeBlockItem";
 import InfoBanner from "./components/InfoBanner";
 import TimerModal from "./components/TimerModal";
+// import "./styles.css"
 
 export default function App() {
   const defaultTimeBlock: TimeBlock = {
@@ -51,19 +52,21 @@ export default function App() {
       />
       <Navbar buttonOnPress={() => setModalVisible(true)} />
 
-      <ScrollView className="p-3">
-        {visibleInfoBanner ? (
-          <InfoBanner closeBannner={() => setVisibleInfoBanner(false)} />
-        ) : null}
-        {timeBlocks.map((block, index) => (
-          <TimeBlockItem
-            index={index}
-            block={block}
-            deleteBlock={deleteBlock}
-            key={`time-block-${index}`}
-          />
-        ))}
-      </ScrollView>
+      <View>
+        <ScrollView className="pt-3 px-3 mb-3">
+          {visibleInfoBanner ? (
+            <InfoBanner closeBannner={() => setVisibleInfoBanner(false)} />
+          ) : null}
+          {timeBlocks.map((block, index) => (
+            <TimeBlockItem
+              index={index}
+              block={block}
+              deleteBlock={deleteBlock}
+              key={`time-block-${index}`}
+            />
+          ))}
+        </ScrollView>
+      </View>
 
       {timeBlocks.length ? (
         <Fab fabPress={() => setTimerModalVisible(true)} />
