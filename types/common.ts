@@ -9,3 +9,10 @@ export type Clock = {
   minutes: number;
   seconds: number;
 }
+
+export type Template = {
+  name: string;
+  timeBlocks: TimeBlocks;
+}
+
+export type Templates = Template[];
