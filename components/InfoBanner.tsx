@@ -3,12 +3,12 @@ import { View, Text, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
 type PropTypes = {
-    closeBannner: () => void;
-}
+  closeBannner: () => void;
+};
 
-export default function InfoBanner({closeBannner}: PropTypes) {
+export default function InfoBanner({ closeBannner }: PropTypes) {
   return (
-    <View className="p-3 bg-[#302F4D] rounded-md mb-5 shadow-md border border-gray-200">
+    <View className="p-3 bg-primary rounded-md mb-5 shadow-md border border-gray-200">
       <View className="flex flex-row items-center">
         <View className="flex-1">
           <Text className="text-white text-xs block">
@@ -17,10 +17,7 @@ export default function InfoBanner({closeBannner}: PropTypes) {
             button to begin your customized timer.
           </Text>
         </View>
-        <TouchableOpacity
-          onPress={closeBannner}
-          className="pl-2"
-        >
+        <TouchableOpacity onPress={closeBannner} className="pl-2">
           <Ionicons name="md-close" size={16} color="white" />
         </TouchableOpacity>
       </View>

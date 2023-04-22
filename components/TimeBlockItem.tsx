@@ -11,8 +11,7 @@ type PropTypes = {
 
 export default function TimeBlockItem({ index, block, deleteBlock }: PropTypes) {
   return (
-    <View
-      id={`time-block-${index}`}
+    <View      
       className="bg-white rounded-md shadow-md p-3 mb-3 border-gray-200 border"
     >
       <View className="flex flex-row items-center justify-between">

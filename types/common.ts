@@ -4,3 +4,8 @@ export type TimeBlock = {
 };
 
 export type TimeBlocks = TimeBlock[];
+
+export type Clock = {
+  minutes: number;
+  seconds: number;
+}
