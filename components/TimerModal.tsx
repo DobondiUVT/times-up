@@ -1,5 +1,6 @@
 import {
   Modal,
+  Platform,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -47,23 +48,21 @@ export default function TimerModal({
   };
 
   return (
-    <View style={{paddingTop: Constants.statusBarHeight + 16,}} className="absolute top-0 right-0 bottom-0 left-0">
-      <SafeAreaView>
-        <Modal
-          animationType="slide"
-          transparent={true}
-          visible={modalVisible}
-          onRequestClose={() => {
-            setModalVisible(!modalVisible);
-          }}
-        >
-          <View className="flex-1 bg-white p-5">
-            <View className="flex-1">
-              <TimerItem timeBlock={currentTimeBlock} nextTimeBlock={nextTimeBlock} nextBlock={nextBlock} setModalVisible={setModalVisible}/>
-            </View>
+    <Modal
+      animationType="slide"
+      transparent={true}
+      visible={modalVisible}
+      onRequestClose={() => {
+        setModalVisible(!modalVisible);
+      }}
+    >
+      <SafeAreaView className="flex-1 bg-white" style={{paddingTop: Platform.OS == 'ios' ? Constants.statusBarHeight : 0}}>
+        <View className="flex-1 p-5">
+          <View className="flex-1">
+            <TimerItem timeBlock={currentTimeBlock} nextTimeBlock={nextTimeBlock} nextBlock={nextBlock} setModalVisible={setModalVisible}/>
           </View>
-        </Modal>
+        </View>
       </SafeAreaView>
-    </View>
+    </Modal>
   );
 }
