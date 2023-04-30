@@ -9,11 +9,13 @@ type PropTypes = {
   deleteBlock: (index: number) => () => void;
 };
 
-export default function TimeBlockItem({ index, block, deleteBlock }: PropTypes) {
+export default function TimeBlockItem({
+  index,
+  block,
+  deleteBlock,
+}: PropTypes) {
   return (
-    <View      
-      className="bg-white rounded-md shadow-md p-3 mb-3 border-gray-200 border"
-    >
+    <View className="bg-white rounded-md shadow-md p-3 mb-3 border-gray-200 border">
       <View className="flex flex-row items-center justify-between">
         <View>
           <Text className="text-gray-800 font-bold text-lg">{block.name}</Text>
@@ -21,10 +23,7 @@ export default function TimeBlockItem({ index, block, deleteBlock }: PropTypes) 
             {block.duration} seconds
           </Text>
         </View>
-        <TouchableOpacity
-          onPress={deleteBlock(index)}
-          className="p-2"
-        >
+        <TouchableOpacity onPress={deleteBlock(index)} className="p-2">
           <Ionicons name="md-trash-bin-outline" size={24} color="tomato" />
         </TouchableOpacity>
       </View>

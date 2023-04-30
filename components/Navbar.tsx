@@ -36,13 +36,20 @@ export default function Navbar({ buttonOnPress }: PropTypes) {
   });
 
   return (
-    <View style={styles.AndroidSafeArea} className="justify-end bg-primary pb-2 px-4">
+    <View
+      style={styles.AndroidSafeArea}
+      className="justify-end bg-primary pb-2 px-4"
+    >
       <View className="flex flex-row justify-between items-center pt-2 pb-1">
         <View className="flex-row items-center gap-x-1">
-          <Ionicons name="md-menu-outline" size={32} color={colors.secondary} />
           <View className="flex-row gap-x-1 items-center">
             <Animated.View style={{ transform: [{ rotate: spin }] }}>
-              <Ionicons name="md-hourglass-outline" size={28} color={colors.secondary} className="text-primary"/>
+              <Ionicons
+                name="md-hourglass-outline"
+                size={28}
+                color={colors.secondary}
+                className="text-primary"
+              />
             </Animated.View>
             <Text className="text-lg text-white font-bold">Time's Up!</Text>
           </View>
@@ -60,6 +67,6 @@ export default function Navbar({ buttonOnPress }: PropTypes) {
 
 const styles = StyleSheet.create({
   AndroidSafeArea: {
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
-  }
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+  },
 });

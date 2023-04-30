@@ -5,12 +5,8 @@
     "esModuleInterop": true,
     "isolatedModules": true,
     "jsx": "react-native",
-    "lib": [
-      "esnext"
-    ],
-    "types": [
-      "react-native"
-    ],
+    "lib": ["esnext"],
+    "types": ["react-native"],
     "moduleResolution": "node",
     "noEmit": true,
     "strict": true,

@@ -31,8 +31,12 @@ export default function TimerModal({
     duration: 5,
   };
 
-  const [currentTimeBlock, setCurrentTimeBlock] = React.useState<TimeBlock | undefined>();
-  const [nextTimeBlock, setNextTimeBlock] = React.useState<TimeBlock | undefined>();
+  const [currentTimeBlock, setCurrentTimeBlock] = React.useState<
+    TimeBlock | undefined
+  >();
+  const [nextTimeBlock, setNextTimeBlock] = React.useState<
+    TimeBlock | undefined
+  >();
   const [lastTimeBlockIndex, setLastTimeBlockIndex] = React.useState(0);
 
   React.useEffect(() => {
@@ -56,10 +60,20 @@ export default function TimerModal({
         setModalVisible(!modalVisible);
       }}
     >
-      <SafeAreaView className="flex-1 bg-white" style={{paddingTop: Platform.OS == 'ios' ? Constants.statusBarHeight : 0}}>
+      <SafeAreaView
+        className="flex-1 bg-white"
+        style={{
+          paddingTop: Platform.OS == "ios" ? Constants.statusBarHeight : 0,
+        }}
+      >
         <View className="flex-1 p-5">
           <View className="flex-1">
-            <TimerItem timeBlock={currentTimeBlock} nextTimeBlock={nextTimeBlock} nextBlock={nextBlock} setModalVisible={setModalVisible}/>
+            <TimerItem
+              timeBlock={currentTimeBlock}
+              nextTimeBlock={nextTimeBlock}
+              nextBlock={nextBlock}
+              setModalVisible={setModalVisible}
+            />
           </View>
         </View>
       </SafeAreaView>

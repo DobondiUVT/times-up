@@ -54,7 +54,12 @@ export default function FormModal({
         setModalVisible(!modalVisible);
       }}
     >
-      <SafeAreaView className="flex-1 bg-white" style={{paddingTop: Platform.OS == 'ios' ? Constants.statusBarHeight : 0}}>
+      <SafeAreaView
+        className="flex-1 bg-white"
+        style={{
+          paddingTop: Platform.OS == "ios" ? Constants.statusBarHeight : 0,
+        }}
+      >
         <View className="flex-1 p-5">
           <View className="flex-1">
             <View className="flex flex-row justify-between">

@@ -19,7 +19,9 @@ export default function TimerItem({
     return (
       <View className="flex-1 items-center justify-center">
         <Text className="text-2xl font-bold mb-2">Congratulations!</Text>
-        <Text className="text-lg mb-8 text-center">You have just completed your customized timer. Great job!</Text>
+        <Text className="text-lg mb-8 text-center">
+          You have just completed your customized timer. Great job!
+        </Text>
         <Text className="text-5xl mb-12">🎉🪅</Text>
         <TouchableOpacity
           onPress={() => {
@@ -81,7 +83,9 @@ export default function TimerItem({
         </View>
       </View>
       <View className="items-center justify-center my-auto">
-        <Text className="text-xl tracking-wide mb-4 -mt-4">{timeBlock.name}</Text>
+        <Text className="text-xl tracking-wide mb-4 -mt-4">
+          {timeBlock.name}
+        </Text>
         <View className="w-[280px] aspect-square">
           <View className="border-8 border-primary rounded-full w-full h-full items-center justify-center">
             <Text className="text-6xl font-bold tracking-wide">
@@ -105,11 +109,16 @@ export default function TimerItem({
         >
           <Text className="font-bold">{paused ? "Resume" : "Pause"}</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="bg-emerald-300 px-5 py-4 rounded-md" onPress={() => {
-          nextBlock();
-          setPaused(false);
-        }}>
-          <Text className="font-bold">{nextTimeBlock == undefined ? "Finish" : "Go next"}</Text>
+        <TouchableOpacity
+          className="bg-emerald-300 px-5 py-4 rounded-md"
+          onPress={() => {
+            nextBlock();
+            setPaused(false);
+          }}
+        >
+          <Text className="font-bold">
+            {nextTimeBlock == undefined ? "Finish" : "Go next"}
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
