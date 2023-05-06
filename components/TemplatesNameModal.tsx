@@ -48,6 +48,9 @@ export default function TemplatesNameModal({
       onRequestClose={() => {
         setModalVisible(!modalVisible);
       }}
+      onShow={() => {
+        onChangeName("");
+      }}
     >
       <SafeAreaView
         className="flex-1 bg-white"

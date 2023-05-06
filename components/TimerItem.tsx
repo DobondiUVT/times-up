@@ -35,33 +35,46 @@ export default function TimerItem({
     );
   }
 
-  const convertDurationToClock = (duration: number) => {
-    const minutes = Math.floor(duration / 60);
-    const seconds = duration % 60;
-    return { minutes, seconds };
-  };
-
   const convertClockToFormat = (clock: Clock) => {
-    const { minutes, seconds } = clock;
+    const { hours, minutes, seconds } = clock;
+    const hoursString = hours < 10 ? `0${hours}` : `${hours}`;
     const minutesString = minutes < 10 ? `0${minutes}` : `${minutes}`;
     const secondsString = seconds < 10 ? `0${seconds}` : `${seconds}`;
-    return `${minutesString}:${secondsString}`;
+    return `${hoursString}:${minutesString}:${secondsString}`;
   };
 
   const [clock, setClock] = React.useState<Clock>();
   const [paused, setPaused] = React.useState(false);
 
   React.useEffect(() => {
-    setClock(convertDurationToClock(timeBlock.duration));
+    setClock({
+      hours: timeBlock.hours,
+      minutes: timeBlock.minutes,
+      seconds: timeBlock.seconds,
+    });
   }, [timeBlock]);
 
   React.useEffect(() => {
     const timer = setInterval(() => {
       if (clock && !paused) {
         if (clock.seconds > 0) {
-          setClock({ ...clock, seconds: clock.seconds - 1 });
+          setClock({
+            ...clock,
+            seconds: clock.seconds - 1,
+          });
         } else if (clock.minutes > 0) {
-          setClock({ ...clock, minutes: clock.minutes - 1, seconds: 59 });
+          setClock({
+            ...clock,
+            minutes: clock.minutes - 1,
+            seconds: 59,
+          });
+        } else if (clock.hours > 0) {
+          setClock({
+            ...clock,
+            hours: clock.hours - 1,
+            minutes: 59,
+            seconds: 59,
+          });
         } else {
           clearInterval(timer);
           nextBlock();

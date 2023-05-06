@@ -30,15 +30,29 @@ export default function FormModal({
   setTimeBlocks,
 }: PropTypes) {
   const [name, onChangeName] = useState("");
-  const [duration, onChangeDuration] = useState("");
+  const [hours, onChangeHours] = useState("");
+  const [minutes, onChangeMinutes] = useState("");
+  const [seconds, onChangeSeconds] = useState("");
 
   const addBlock = () => {
-    setTimeBlocks([...timeBlocks, { name, duration: parseInt(duration) }]);
+    setTimeBlocks([
+      ...timeBlocks,
+      {
+        name,
+        hours: hours ? parseInt(hours) : 0,
+        minutes: minutes ? parseInt(minutes) : 0,
+        seconds: seconds ? parseInt(seconds) : 0,
+      },
+    ]);
     setModalVisible(false);
   };
 
   const isValid = () => {
-    return name !== "" && duration !== "" && !isNaN(parseInt(duration));
+    const hasName = name !== "";
+    const hasHours = hours !== "";
+    const hasMinutes = minutes !== "";
+    const hasSeconds = seconds !== "";
+    return hasName && (hasHours || hasMinutes || hasSeconds);
   };
 
   return (
@@ -48,7 +62,9 @@ export default function FormModal({
       visible={modalVisible}
       onShow={() => {
         onChangeName("");
-        onChangeDuration("");
+        onChangeHours("");
+        onChangeMinutes("");
+        onChangeSeconds("");
       }}
       onRequestClose={() => {
         setModalVisible(!modalVisible);
@@ -85,16 +101,40 @@ export default function FormModal({
                 className="border border-gray-300 rounded-md py-1 px-3 bg-white"
               />
             </View>
-            <View className="mb-4">
-              <Text className="mb-1">Duration (s)</Text>
-              <TextInput
-                onChangeText={onChangeDuration}
-                keyboardType="numeric"
-                returnKeyType="done"
-                value={duration}
-                placeholder="120"
-                className="border border-gray-300 rounded-md py-1 px-3 bg-white"
-              />
+            <View className="flex-row gap-6">
+              <View className="mb-4 grow">
+                <Text className="mb-1">Hours</Text>
+                <TextInput
+                  onChangeText={onChangeHours}
+                  keyboardType="numeric"
+                  returnKeyType="done"
+                  value={hours}
+                  placeholder="1"
+                  className="border border-gray-300 rounded-md py-1 px-3 bg-white"
+                />
+              </View>
+              <View className="mb-4 grow">
+                <Text className="mb-1">Minutes</Text>
+                <TextInput
+                  onChangeText={onChangeMinutes}
+                  keyboardType="numeric"
+                  returnKeyType="done"
+                  value={minutes}
+                  placeholder="30"
+                  className="border border-gray-300 rounded-md py-1 px-3 bg-white"
+                />
+              </View>
+              <View className="mb-4 grow">
+                <Text className="mb-1">Seconds</Text>
+                <TextInput
+                  onChangeText={onChangeSeconds}
+                  keyboardType="numeric"
+                  returnKeyType="done"
+                  value={seconds}
+                  placeholder="10"
+                  className="border border-gray-300 rounded-md py-1 px-3 bg-white"
+                />
+              </View>
             </View>
           </View>
           <View className="items-end">

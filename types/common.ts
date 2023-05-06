@@ -1,11 +1,14 @@
 export type TimeBlock = {
   name: string;
-  duration: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
 };
 
 export type TimeBlocks = TimeBlock[];
 
 export type Clock = {
+  hours: number;
   minutes: number;
   seconds: number;
 };

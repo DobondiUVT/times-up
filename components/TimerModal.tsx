@@ -28,7 +28,9 @@ export default function TimerModal({
 }: PropTypes) {
   const preparationTimeBlock: TimeBlock = {
     name: "Get ready!",
-    duration: 5,
+    hours: 0,
+    minutes: 0,
+    seconds: 5,
   };
 
   const [currentTimeBlock, setCurrentTimeBlock] = React.useState<
